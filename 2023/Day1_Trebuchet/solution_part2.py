@@ -34,9 +34,9 @@ def extract_numbers(text):
     return final_val
 
 
-sum = 0
+sum = []
 
 for line in Lines:
-    sum += extract_numbers(line)
+    sum.append(extract_numbers(line))
 
 print(sum)
