@@ -17,6 +17,3 @@ for line in Lines:
 # print(cal_wrapper(line))
 
 print(sum)
-
-
-# 1585300
