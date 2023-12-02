@@ -34,6 +34,9 @@ def extract_numbers(text):
     return final_val
 
 
-print(extract_numbers('two2seven7'))
-# for line in Lines:
-#     result = extract_numbers(line)
+sum = 0
+
+for line in Lines:
+    sum += extract_numbers(line)
+
+print(sum)
