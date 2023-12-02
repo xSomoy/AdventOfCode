@@ -42,4 +42,4 @@ for line in Lines:
 for val in all_vals:
     sum += val
 
-print(len(all_vals))
+print(sum)
