@@ -10,8 +10,38 @@ def is_possible(game_result):
     game_result = game_result[1].split(';')
     for i in game_result:
         round = i.split(',')
-        print(round[0].split(' '))
-    return game_result
+        for r in round:
+            r = r.strip()
+            values = r.split(' ')
+            if values[1] == 'red':
+                if int(values[0]) <= red:
+                    continue
+                else:
+                    return 0
+            if values[1] == 'green':
+                if int(values[0]) <= green:
+                    continue
+                else:
+                    return 0
+            if values[1] == 'blue':
+                if int(values[0]) <= blue:
+                    continue
+                else:
+                    return 0
+    return 1
 
 
-print(is_possible('Game 1: 3 blue, 2 green, 6 red; 17 green, 4 red, 8 blue; 2 red, 1 green, 10 blue; 1 blue, 5 green'))
+def get_id(game_result):
+    id = game_result.split(':')
+    id = id[0].split(' ')
+    id = int(id[1])
+    return id
+
+
+sum = 0
+for line in Lines:
+    possiblity = is_possible(line)
+    if possiblity != 0:
+        id = get_id(line)
+        sum += id
+print(sum)
