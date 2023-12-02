@@ -32,8 +32,10 @@ for line in Lines:
         for i in line:
             if i.isdigit():
                 num.append(i)
-                values.append((num[0] + num[1]))
-                num = []
+        if len(num) != 0:
+            num2 = str(num[0]) + str(num[-1])
+            values.append(num2)
+        num = []
     n += 1
 
 print(values)
