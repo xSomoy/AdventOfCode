@@ -26,4 +26,7 @@ def minimum_cubes(game_result):
     return red*blue*green
 
 
-print(minimum_cubes('Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green'))
+sum = 0
+for line in Lines:
+    sum += minimum_cubes(line)
+print(sum)
