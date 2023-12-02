@@ -35,10 +35,9 @@ sum = 0
 for line in Lines:
     all_vals.append(extract_numbers(line))
 for val in all_vals:
-    sum = sum + val
-    print(val)
+    sum += val
 # print(extract_numbers('threexfcvbv9qkthree3'))
-print(sum)
+print(sum - all_vals[0])
 
 
 # Ans: 54925
