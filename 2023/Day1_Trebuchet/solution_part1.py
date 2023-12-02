@@ -30,11 +30,11 @@ for line in Lines:
     for i in line:
         if i.isdigit():
             num.append(i)
-    if len(num) != 0:
-        num2 = str(num[0]) + str(num[-1])
-        values.append(num2)
+    num2 = str(num[0]) + str(num[-1])
+    values.append(int(num2))
     num = []
 
+
 for val in values:
-    sum = sum + int(val)
+    sum += val
 print(sum)
