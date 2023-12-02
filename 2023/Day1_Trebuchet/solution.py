@@ -21,13 +21,25 @@
 # Consider your entire calibration document. What is the sum of all of the calibration values?
 
 # --------------------------------------------------------------------
-# import os
 input_file = open('input.txt', 'r')
 Lines = input_file.readlines()
+num = []
+values = []
+sum = 0
 n = 1
 for line in Lines:
-    if n <= 5:
-        print(line)
+    if n <= 2:
+        for i in line:
+            if i.isdigit():
+                num.append(i)
+                values.append((num[0] + num[1]))
+                num = []
     n += 1
 
-# print(os.getcwd())
+print(values)
+# print(sum)
+
+# for n in values:
+#     sum = sum + int(n)
+#     print(n)
+# # print(sum)
