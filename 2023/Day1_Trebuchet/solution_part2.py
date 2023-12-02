@@ -6,21 +6,20 @@ Lines = input_file.readlines()
 
 def extract_numbers(text):
     # Define a dictionary to store the mapping of words to numbers
-    number_mapping = {
-        'zero': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4,
-        'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9
-        # Add more mappings as needed
-    }
+    number_mapping = ['zero', 'one', 'two', 'three',
+                      'four', 'five', 'six', 'seven', 'eight', 'nine',
+                      '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
     # Use regular expression to find words representing numbers in the text
-    matches = re.findall(
-        r'\b(?:' + '|'.join(number_mapping.keys()) + r')\b', text)
+    value = []
+    for i in number_mapping:
+        if i in text:
+            value.append(text.index(i))
 
-    # Convert the matched words to numbers and return them
-    numbers = [number_mapping[word] for word in matches]
-    print(numbers)
-    return numbers
+        # print(i)
+    return value
 
 
-for line in Lines:
-    result = extract_numbers(line)
+print(extract_numbers('two2seven7'))
+# for line in Lines:
+#     result = extract_numbers(line)
