@@ -19,3 +19,15 @@
 # In this example, the calibration values of these four lines are 12, 38, 15, and 77. Adding these together produces 142.
 
 # Consider your entire calibration document. What is the sum of all of the calibration values?
+
+# --------------------------------------------------------------------
+# import os
+input_file = open('input.txt', 'r')
+Lines = input_file.readlines()
+n = 1
+for line in Lines:
+    if n <= 5:
+        print(line)
+    n += 1
+
+# print(os.getcwd())
