@@ -1,3 +1,4 @@
+import sys
 from collections import *
 
 
@@ -27,6 +28,8 @@ def main() -> None:
     width = len(grid[0])
     height = len(grid)
 
+    d = defaultdict(list)
+
     t = 0
     for y in range(height):
         x = 0
@@ -46,10 +49,19 @@ def main() -> None:
                 checks.extend(get_adjacents(i, y, width, height))
                 x += 1
 
-            if any(grid[ny][nx] != "." and not grid[ny][nx].isdigit() for nx, ny in checks):
-                t += int(num)
+            for nx, ny in checks:
+                if grid[ny][nx] == "*":
+                    d[(nx, ny)].append(int(num))
+                    break
 
             x += 1
+
+    for nums in d.values():
+        if len(nums) > 1:
+            result = 1
+            for num in nums:
+                result *= num
+            t += result
 
     print(t)
 
