@@ -1,4 +1,4 @@
-input_file = open('demo_input.txt', 'r')
+input_file = open('input.txt', 'r')
 Lines = input_file.readlines()
 left_col = []
 right_col = []
@@ -13,7 +13,9 @@ for i in Lines:
     right_col.append(i.split()[1])
 right_col = sorted(right_col)
 
+distance = 0
 i = 0
-while (0 < len(left_col)):
-    print(int(left_col[i]) - int(right_col[i]))
+while (i < len(left_col)):
+    distance = distance + abs((int(right_col[i]) - int(left_col[i])))
     i += 1
+print(distance)
