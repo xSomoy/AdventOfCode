@@ -1,11 +1,11 @@
-input_file = open('input.in', 'r')
+input_file = open('input.txt', 'r')
 Lines = input_file.read().strip()
 # Lines = '^v^v^v^v^v'
 
 santa_visited = set()
 robo_santa_visited = set()
 santa_visited.add((0, 0))
-# robo_santa_visited.add((0, 0))
+robo_santa_visited.add((0, 0))
 santa_pos = (0, 0)
 robo_santa_pos = (0, 0)
 n = 0

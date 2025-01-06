@@ -1,4 +1,4 @@
-input_file = open('input.in', 'r')
+input_file = open('input.txt', 'r')
 Lines = input_file.read().strip()
 
 visited = set()
