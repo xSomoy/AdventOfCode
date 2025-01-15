@@ -1,7 +1,8 @@
-lines = open('input.txt', 'r').readlines()
-# lights[999, 999] = {0}
-rows, cols = (1000, 1000)
-lights = [[0]*cols]*rows
+import numpy as np
+# lines = open('input.txt', 'r').readlines()
+lines = open("demo.in", 'r').readlines()
+
+lights = np.zeros((5, 5))
 
 
 def turnOn(start, end):
@@ -10,9 +11,12 @@ def turnOn(start, end):
     x2 = int(end.split(",")[0])
     y2 = int(end.split(",")[1])
     while x1 <= x2:
+        print("x loop")
         while y1 <= y2:
+            print("turning on at ", x1, y1)
             lights[x1][y1] = 1
             y1 += 1
+        y1 = 0
         x1 += 1
 
 
@@ -52,16 +56,18 @@ for i in lines:
         turnOff(i.split()[2], i.split()[4])
 
 sum = 0
-x = 0
-y = 0
-while x < 1000:
-    sum += lights[x][y]
-    x += 1
+# x = 0
+# y = 0
+# while x < 1000:
+#     while y < 1000:
+#         sum += lights[x][y]
+#         y += 1
+#     x += 1
 
-print(type(lights[0][0]))
 
 for row in lights:
     for element in row:
         sum += element
 
+print(lights)
 print(sum)
