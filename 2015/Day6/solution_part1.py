@@ -11,12 +11,10 @@ def turnOn(start, end):
     x2 = int(end.split(",")[0])
     y2 = int(end.split(",")[1])
     while x1 <= x2:
-        print("x loop")
         while y1 <= y2:
-            print("turning on at ", x1, y1)
             lights[x1][y1] = 1
             y1 += 1
-        y1 = 0
+        y1 = int(start.split(",")[1])
         x1 += 1
 
 
@@ -27,11 +25,15 @@ def toggle(start, end):
     y2 = int(end.split(",")[1])
     while x1 <= x2:
         while y1 <= y2:
+            print("checking", x1, y1)
             if lights[x1][y1] == 1:
                 lights[x1][y1] == 0
-            elif lights[x1][y1] == 0:
-                lights[x1][x2] == 1
+                print("if catches")
+            else:
+                lights[x1][y1] == 1
+                print("else catches")
             y1 += 1
+        y1 = int(start.split(",")[1])
         x1 += 1
 
 
@@ -44,6 +46,7 @@ def turnOff(start, end):
         while y1 <= y2:
             lights[x1][y1] = 0
             y1 += 1
+        y1 = int(start.split(",")[1])
         x1 += 1
 
 
@@ -56,18 +59,10 @@ for i in lines:
         turnOff(i.split()[2], i.split()[4])
 
 sum = 0
-# x = 0
-# y = 0
-# while x < 1000:
-#     while y < 1000:
-#         sum += lights[x][y]
-#         y += 1
-#     x += 1
-
-
 for row in lights:
     for element in row:
         sum += element
+
 
 print(lights)
 print(sum)
