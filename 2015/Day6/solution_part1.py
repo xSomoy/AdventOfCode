@@ -1,8 +1,8 @@
 import numpy as np
-# lines = open('input.txt', 'r').readlines()
-lines = open("demo.in", 'r').readlines()
+lines = open('input.txt', 'r').readlines()
+# lines = open("demo.in", 'r').readlines()
 
-lights = np.zeros((5, 5))
+lights = np.zeros((1000, 1000))
 
 
 def turnOn(start, end):
@@ -25,13 +25,10 @@ def toggle(start, end):
     y2 = int(end.split(",")[1])
     while x1 <= x2:
         while y1 <= y2:
-            print("checking", x1, y1)
             if lights[x1][y1] == 1:
-                lights[x1][y1] == 0
-                print("if catches")
-            else:
-                lights[x1][y1] == 1
-                print("else catches")
+                lights[x1][y1] = 0
+            elif lights[x1][y1] == 0:
+                lights[x1][y1] = 1
             y1 += 1
         y1 = int(start.split(",")[1])
         x1 += 1
