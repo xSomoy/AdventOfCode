@@ -38,7 +38,8 @@ def turnOff(start, end):
     y2 = int(end.split(",")[1])
     while x1 <= x2:
         while y1 <= y2:
-            lights[x1][y1] -= 1
+            if lights[x1][y1] != 0:
+                lights[x1][y1] -= 1
             y1 += 1
         y1 = int(start.split(",")[1])
         x1 += 1
@@ -57,6 +58,4 @@ for row in lights:
     for element in row:
         sum += element
 
-
-print(lights)
 print(sum)
