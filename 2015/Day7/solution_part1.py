@@ -1,4 +1,7 @@
+table = {}
 lines = open('input.in', 'r').readlines()
 for i in lines:
-    if i.split()[0].isnumeric():
-        print(i)
+    l, r = i.strip().split(" -> ")
+    table[r] = l
+
+print(table['lx'])
