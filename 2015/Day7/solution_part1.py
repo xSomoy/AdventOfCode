@@ -2,7 +2,8 @@ table = {}
 mem = {}
 roots = []
 step = {}
-lines = open('input.in', 'r').readlines()
+# lines = open('input.in', 'r').readlines()
+lines = open('demo.in', 'r').readlines()
 for i in lines:
     l, r = i.strip().split(" -> ")
     table[r] = l
@@ -21,7 +22,8 @@ def ops(cmd):
         var = cmd.split()[1]
         key = cmd.split()[-1]
         if var in calcd:
-            mem[key] = ~mem[var]
+            var = int(mem[var])
+            mem[key] = ~var
             nextStep(key)
 
     if "LSHIFT" in cmd.split():
@@ -49,7 +51,20 @@ def ops(cmd):
         var2 = cmd.split()[2]
         key = cmd.split()[-1]
         if var1 in calcd and var2 in calcd:
-            mem[key] = mem[var1] & mem[var2]
+            print(var1, var2)
+            var1 = int(mem[var1])
+            var2 = int(mem[var2])
+            mem[key] = var1 & var2
+            nextStep(key)
+
+    if "OR" in cmd.split():
+        var1 = cmd.split()[0]
+        var2 = cmd.split()[2]
+        key = cmd.split()[-1]
+        if var1 in calcd and var2 in calcd:
+            var1 = int(mem[var1])
+            var2 = int(mem[var2])
+            mem[key] = var1 | var2
             nextStep(key)
 
 
