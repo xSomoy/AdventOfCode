@@ -2,8 +2,8 @@ table = {}
 mem = {}
 roots = []
 step = {}
-# lines = open('input.in', 'r').readlines()
-lines = open('demo.in', 'r').readlines()
+lines = open('input.in', 'r').readlines()
+# lines = open('demo.in', 'r').readlines()
 for i in lines:
     l, r = i.strip().split(" -> ")
     table[r] = l
@@ -22,8 +22,10 @@ def ops(cmd):
         var = cmd.split()[1]
         key = cmd.split()[-1]
         if var in calcd:
-            var = int(mem[var])
-            mem[key] = ~var
+            var1 = bin(int(mem[var]))[2:].zfill(16)
+            var2 = ''.join('1' if c == '0' else '0' for c in var1)
+            var = int('0b' + var2, 2)
+            mem[key] = var
             nextStep(key)
 
     if "LSHIFT" in cmd.split():
