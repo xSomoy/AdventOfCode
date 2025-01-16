@@ -58,6 +58,8 @@ def ops(cmd):
             var2 = int(mem[var2])
             mem[key] = var1 & var2
             nextStep(key)
+        else:
+            newStep(var1, var2)
 
     if "OR" in cmd.split():
         var1 = cmd.split()[0]
@@ -68,6 +70,14 @@ def ops(cmd):
             var2 = int(mem[var2])
             mem[key] = var1 | var2
             nextStep(key)
+        newStep(var1, var2)
+
+
+def newStep(var1, var2):
+    if var1 not in mem:
+        nextStep(var1)
+    else:
+        nextStep(var2)
 
 
 def nextStep(root):
@@ -81,10 +91,13 @@ findRoots()
 calcd = roots
 
 
-def driver():
-    for i in roots:
-        nextStep(i)
+# def driver():
+# for i in roots:
+#     nextStep(i)
 
 
-driver()
+# driver()
+# driver()
+nextStep('s')
+# print(table['s'])
 print(mem)
